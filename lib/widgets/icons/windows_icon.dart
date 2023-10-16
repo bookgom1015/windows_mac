@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 
 class WindowsIcon extends StatefulWidget {
+  const WindowsIcon({super.key});
+
   @override
   State<StatefulWidget> createState() => _WindowsIconState();
 }

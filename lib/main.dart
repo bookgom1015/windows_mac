@@ -34,12 +34,10 @@ class WindowsMacApp extends StatelessWidget {
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
         useMaterial3: true,
       ),
-      home: MultiProvider(
-        providers: [
-          ChangeNotifierProvider(create: (context) => WindowsStateModel()),
-        ],
-        child: const MainPage()
-      ),
+      debugShowCheckedModeBanner: false,
+      home: MultiProvider(providers: [
+        ChangeNotifierProvider(create: (context) => WindowsStateModel()),
+      ], child: const MainPage()),
     );
   }
 }

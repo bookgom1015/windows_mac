@@ -24,7 +24,7 @@ class _TaskBarState extends State<TaskBar> {
           height: 75,
           margin: const EdgeInsets.symmetric(horizontal: 30),
           decoration: BoxDecoration(
-            color: Colors.white.withOpacity(0.05),
+            color: Colors.black.withOpacity(0.1),
             borderRadius: BorderRadius.circular(16)
           ),
           child: BackdropFilter(

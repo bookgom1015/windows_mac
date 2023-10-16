@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:windows_mac/widgets/bigsur_background.dart';
 import 'package:windows_mac/widgets/start_menu.dart';
 import 'package:windows_mac/widgets/task_bar.dart';
+import 'package:windows_mac/widgets/upper_bar.dart';
 
 class MainPage extends StatefulWidget {
   const MainPage({super.key});
@@ -29,6 +30,7 @@ class _MainPageState extends State<MainPage> {
         children: [
           const BigSurBackground(),
           StartMenu(key: _startMenumState),
+          const UpperBar(),
           const TaskBar(),
         ]
       )

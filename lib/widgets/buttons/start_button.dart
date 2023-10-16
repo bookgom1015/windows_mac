@@ -33,7 +33,7 @@ class _StartButton extends State<StartButton> {
           final status = _windowsStateModel.startMenuCollapsed();
           _windowsStateModel.collapseStartMenu(!status);
         },
-        child: WindowsIcon(),
+        child: const WindowsIcon(),
       ),
     );
   }
