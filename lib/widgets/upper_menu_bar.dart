@@ -2,16 +2,21 @@ import 'dart:async';
 
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
+import 'package:provider/provider.dart';
 import 'package:windows_mac/widgets/buttons/reacting_button.dart';
+import 'package:windows_mac/widgets/models/control_manager_model.dart';
 
-class UpperBar extends StatefulWidget {
-  const UpperBar({super.key});
+class UpperMenuBar extends StatefulWidget {
+  const UpperMenuBar({super.key});
 
   @override
-  State<StatefulWidget> createState() => _UpperBarState();
+  State<StatefulWidget> createState() => _UpperMenuBarState();
 }
 
-class _UpperBarState extends State<UpperBar> {
+class _UpperMenuBarState extends State<UpperMenuBar> {
+  bool _firstCall = true;
+  late ControlManagerModel _controlManagerModel;
+
   DateTime _now = DateTime.now();
 
   @override
@@ -25,9 +30,22 @@ class _UpperBarState extends State<UpperBar> {
   }
 
   @override
+  void didChangeDependencies() {
+    super.didChangeDependencies();
+    if (_firstCall) {
+      _firstCall = false;
+      _controlManagerModel = context.watch<ControlManagerModel>();
+      _controlManagerModel.addListener(windowsStateChanged);
+    }
+  }
+
+  @override
   void dispose() {
+    _controlManagerModel.removeListener(windowsStateChanged);
     super.dispose();
   }
+
+  void windowsStateChanged() {}
 
   @override
   Widget build(BuildContext context) {
@@ -85,6 +103,11 @@ class _UpperBarState extends State<UpperBar> {
                         height: 25,
                         hoveringColor: Colors.white.withOpacity(0.15),
                         borderRadius: BorderRadius.circular(6),
+                        onTap: () {
+                          final status =
+                              _controlManagerModel.controlManagerCollapsed();
+                          _controlManagerModel.collapseControlManager(!status);
+                        },
                         child: const Icon(Icons.bento,
                             size: 20, color: Colors.white),
                       ),

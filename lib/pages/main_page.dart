@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:windows_mac/widgets/control_manager.dart';
+import 'package:windows_mac/widgets/upper_menu_bar.dart';
 import 'package:windows_mac/widgets/bigsur_background.dart';
 import 'package:windows_mac/widgets/start_menu.dart';
 import 'package:windows_mac/widgets/task_bar.dart';
-import 'package:windows_mac/widgets/upper_bar.dart';
 
 class MainPage extends StatefulWidget {
   const MainPage({super.key});
@@ -26,14 +27,12 @@ class _MainPageState extends State<MainPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Stack(
-        children: [
-          const BigSurBackground(),
-          StartMenu(key: _startMenumState),
-          const UpperBar(),
-          const TaskBar(),
-        ]
-      )
-    );
+        body: Stack(children: [
+      const BigSurBackground(),
+      StartMenu(key: _startMenumState),
+      const ControlManager(),
+      const UpperMenuBar(),
+      const TaskBar(),
+    ]));
   }
 }

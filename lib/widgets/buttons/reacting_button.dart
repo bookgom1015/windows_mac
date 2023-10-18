@@ -11,6 +11,8 @@ class ReactingButton extends StatefulWidget {
 
   final BorderRadiusGeometry? borderRadius;
 
+  final void Function()? onTap;
+
   final Widget? child;
 
   const ReactingButton(
@@ -21,6 +23,7 @@ class ReactingButton extends StatefulWidget {
       this.color,
       this.hoveringColor,
       this.borderRadius,
+      this.onTap,
       this.child});
 
   @override
@@ -45,19 +48,20 @@ class _ReactingButtonState extends State<ReactingButton> {
       margin: widget.margin,
       decoration: BoxDecoration(
           color: _backgroundColor, borderRadius: widget.borderRadius),
-      child: MouseRegion(
-        onEnter: (event) {
-          setState(() {
-            _backgroundColor = widget.hoveringColor;
-          });
-        },
-        onExit: (event) {
-          setState(() {
-            _backgroundColor = widget.color;
-          });
-        },
-        cursor: SystemMouseCursors.click,
-        child: GestureDetector(
+      child: GestureDetector(
+        onTap: widget.onTap,
+        child: MouseRegion(
+          onEnter: (event) {
+            setState(() {
+              _backgroundColor = widget.hoveringColor;
+            });
+          },
+          onExit: (event) {
+            setState(() {
+              _backgroundColor = widget.color;
+            });
+          },
+          cursor: SystemMouseCursors.click,
           child: widget.child,
         ),
       ),

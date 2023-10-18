@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-class WindowsStateModel extends ChangeNotifier {
+class StartMenuModel extends ChangeNotifier {
   bool _startMenuCollapsed = true;
 
   void collapseStartMenu(bool collapsed) {

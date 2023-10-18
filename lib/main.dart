@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:windows_mac/pages/main_page.dart';
-import 'package:windows_mac/widgets/models/windows_state_model.dart';
+import 'package:windows_mac/widgets/models/control_manager_model.dart';
+import 'package:windows_mac/widgets/models/start_menu_model.dart';
 
 void main() {
   runApp(const WindowsMacApp());
@@ -35,9 +36,12 @@ class WindowsMacApp extends StatelessWidget {
         useMaterial3: true,
       ),
       debugShowCheckedModeBanner: false,
-      home: MultiProvider(providers: [
-        ChangeNotifierProvider(create: (context) => WindowsStateModel()),
-      ], child: const MainPage()),
+      home: MultiProvider(
+        providers: [
+          ChangeNotifierProvider(create: (context) => StartMenuModel()),
+          ChangeNotifierProvider(create: (context) => ControlManagerModel()),
+        ], 
+        child: const MainPage()),
     );
   }
 }
