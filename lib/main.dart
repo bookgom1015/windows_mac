@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:windows_mac/pages/main_page.dart';
-import 'package:windows_mac/widgets/models/control_manager_model.dart';
+import 'package:windows_mac/widgets/models/manager_model.dart';
 import 'package:windows_mac/widgets/models/start_menu_model.dart';
 
 void main() {
@@ -39,7 +39,7 @@ class WindowsMacApp extends StatelessWidget {
       home: MultiProvider(
         providers: [
           ChangeNotifierProvider(create: (context) => StartMenuModel()),
-          ChangeNotifierProvider(create: (context) => ControlManagerModel()),
+          ChangeNotifierProvider(create: (context) => ManagerModel()),
         ], 
         child: const MainPage()),
     );

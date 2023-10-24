@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:windows_mac/widgets/control_manager.dart';
-import 'package:windows_mac/widgets/upper_menu_bar.dart';
+import 'package:windows_mac/widgets/network_manager.dart';
+import 'package:windows_mac/widgets/spotlight_search.dart';
+import 'package:windows_mac/widgets/upper_menu/upper_menu_bar.dart';
 import 'package:windows_mac/widgets/bigsur_background.dart';
 import 'package:windows_mac/widgets/start_menu.dart';
 import 'package:windows_mac/widgets/task_bar.dart';
@@ -30,7 +32,9 @@ class _MainPageState extends State<MainPage> {
         body: Stack(children: [
       const BigSurBackground(),
       StartMenu(key: _startMenumState),
+      const NetworkManager(),
       const ControlManager(),
+      const SpotlightSearch(),
       const UpperMenuBar(),
       const TaskBar(),
     ]));

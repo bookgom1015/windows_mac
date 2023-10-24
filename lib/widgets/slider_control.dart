@@ -20,7 +20,7 @@ class _SliderControlState extends State<SliderControl> {
       child : Container(
         margin: const EdgeInsets.symmetric(vertical: 6),
         decoration: BoxDecoration(
-          color: Colors.black.withOpacity(0.25),
+          color: Colors.black.withOpacity(0.2),
           borderRadius: BorderRadius.circular(12)
         )        
       )
