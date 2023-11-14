@@ -4,6 +4,7 @@ enum ManagerType {
   eNone,
   eNetwork,
   eControl,
+  eSpotlight,
 }
 
 class ManagerModel extends ChangeNotifier {

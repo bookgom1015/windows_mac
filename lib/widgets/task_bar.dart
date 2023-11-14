@@ -2,6 +2,7 @@ import 'dart:ui';
 
 import 'package:flutter/material.dart';
 import 'package:windows_mac/widgets/buttons/start_button.dart';
+import 'package:windows_mac/widgets/custom_box_shadow.dart';
 
 class TaskBar extends StatefulWidget {
   const TaskBar({super.key});
@@ -11,8 +12,6 @@ class TaskBar extends StatefulWidget {
 }
 
 class _TaskBarState extends State<TaskBar> {
-  final double _sigma = 16;
-
   @override
   Widget build(BuildContext context) {
     return Align(
@@ -24,11 +23,18 @@ class _TaskBarState extends State<TaskBar> {
           height: 75,
           margin: const EdgeInsets.symmetric(horizontal: 30),
           decoration: BoxDecoration(
-            color: Colors.black.withOpacity(0.1),
-            borderRadius: BorderRadius.circular(16)
+            color: Colors.black.withOpacity(0.2),
+            borderRadius: BorderRadius.circular(16),
+            boxShadow: [
+              CustomBoxShadow(
+                color: Colors.black.withOpacity(0.35),
+                blurRadius: 16,
+                blurStyle: BlurStyle.outer
+              )
+            ]
           ),
           child: BackdropFilter(
-            filter: ImageFilter.blur(sigmaX: _sigma, sigmaY: _sigma, tileMode: TileMode.clamp),
+            filter: ImageFilter.blur(sigmaX: 32, sigmaY: 32, tileMode: TileMode.clamp),
             child: const Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [

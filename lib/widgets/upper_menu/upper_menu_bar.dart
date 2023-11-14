@@ -152,6 +152,11 @@ class _UpperMenuBarState extends State<UpperMenuBar> {
                   height: 25,
                   hoveringColor: Colors.white.withOpacity(0.15),
                   borderRadius: BorderRadius.circular(4),
+                  onTap: () {
+                    final status = _managerModel.collapsed(ManagerType.eSpotlight);
+                    if (status) _managerModel.uncollapse(ManagerType.eSpotlight);
+                    else _managerModel.collapse(ManagerType.eSpotlight);
+                  },
                   child: const Icon(
                     Icons.search,
                     size: 20,

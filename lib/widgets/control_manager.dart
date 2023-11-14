@@ -112,94 +112,98 @@ class _ControlManagerState extends State<ControlManager> with TickerProviderStat
             offset: Offset(-15, t * 45 + invT * -380),
             child: Opacity(
               opacity: t * t,
-              child: Container(
-                clipBehavior: Clip.hardEdge,
-                width: 316,
-                height: 416,
-                decoration: BoxDecoration(
-                  color: Colors.black.withOpacity(0),
-                  borderRadius: BorderRadius.circular(12)
-                ),
-                child: BackdropFilter(
-                  filter: ImageFilter.blur(sigmaX: 16, sigmaY: 16, tileMode: TileMode.clamp),
-                  child: Container(
-                    color: Colors.black.withOpacity(0.45),
-                    padding: const EdgeInsets.symmetric(vertical: 8, horizontal: 12),
-                    child: Column(
-                      children: [
-                        AnimatedBuilder(
-                          animation: _stackFourAnimController, 
-                          builder: (_, __) {
-                            final s4 = _stackFourAnim.value;
-                            final invS4 = 1 - s4;
-                            return Transform.translate(
-                              offset: Offset(0, s4 * 0 + invS4 * -160),
-                              child: Opacity(
-                                opacity: s4 * s4,
-                                child: const SliderControl(
-                                  height: 160,
-                                ),
-                              )
-                            );
-                          }
-                        ),
-                        AnimatedBuilder(
-                          animation: _stackThreeAnimController, 
-                          builder: (_, __) {
-                            final s3 = _stackThreeAnim.value;
-                            final invS3 = 1 - s3;
-                            return Transform.translate(
-                              offset: Offset(0, s3 * 0 + invS3 * -160),
-                              child: Opacity(
-                                opacity: s3 * s3,
-                                child: const SliderControl(
-                                  height: 80,
-                                ),
-                              )
-                            );
-                          }
-                        ),
-                        AnimatedBuilder(
-                          animation: _stackTwoAnimController, 
-                          builder: (_, __) {
-                            final s2 = _stackTwoAnim.value;
-                            final invS2 = 1 - s2;
-                            return Transform.translate(
-                              offset: Offset(0, s2 * 0 + invS2 * -160),
-                              child: Opacity(
-                                opacity: s2 * s2,
-                                child: const SliderControl(
-                                  height: 80,
-                                ),
-                              )
-                            );
-                          }
-                        ),
-                        AnimatedBuilder(
-                          animation: _stackOneAnimController, 
-                          builder: (_, __) {
-                            final s1 = _stackOneAnim.value;
-                            final invS1 = 1 - s1;
-                            return Transform.translate(
-                              offset: Offset(0, s1 * 0 + invS1 * -160),
-                              child: Opacity(
-                                opacity: s1 * s1,
-                                child: const SliderControl(
-                                  height: 80,
-                                ),
-                              )
-                            );
-                          }
-                        )
-                      ],
-                    ),
-                  )
-                )
-              ),
+              child: controlPanel()
             ),
           );
         },
       ),
+    );
+  }
+
+  Widget controlPanel() {
+    return Container(
+      clipBehavior: Clip.hardEdge,
+      width: 316,
+      height: 416,
+      decoration: BoxDecoration(
+        color: Colors.black.withOpacity(0),
+        borderRadius: BorderRadius.circular(12)
+      ),
+      child: BackdropFilter(
+        filter: ImageFilter.blur(sigmaX: 16, sigmaY: 16, tileMode: TileMode.clamp),
+        child: Container(
+          color: Colors.black.withOpacity(0.45),
+          padding: const EdgeInsets.symmetric(vertical: 8, horizontal: 12),
+          child: Column(
+            children: [
+              AnimatedBuilder(
+                animation: _stackFourAnimController, 
+                builder: (_, __) {
+                  final s4 = _stackFourAnim.value;
+                  final invS4 = 1 - s4;
+                  return Transform.translate(
+                    offset: Offset(0, s4 * 0 + invS4 * -160),
+                    child: Opacity(
+                      opacity: s4 * s4,
+                      child: const SliderControl(
+                        height: 160,
+                      ),
+                    )
+                  );
+                }
+              ),
+              AnimatedBuilder(
+                animation: _stackThreeAnimController, 
+                builder: (_, __) {
+                  final s3 = _stackThreeAnim.value;
+                  final invS3 = 1 - s3;
+                  return Transform.translate(
+                    offset: Offset(0, s3 * 0 + invS3 * -160),
+                    child: Opacity(
+                      opacity: s3 * s3,
+                      child: const SliderControl(
+                        height: 80,
+                      ),
+                    )
+                  );
+                }
+              ),
+              AnimatedBuilder(
+                animation: _stackTwoAnimController, 
+                builder: (_, __) {
+                  final s2 = _stackTwoAnim.value;
+                  final invS2 = 1 - s2;
+                  return Transform.translate(
+                    offset: Offset(0, s2 * 0 + invS2 * -160),
+                    child: Opacity(
+                      opacity: s2 * s2,
+                      child: const SliderControl(
+                        height: 80,
+                      ),
+                    )
+                  );
+                }
+              ),
+              AnimatedBuilder(
+                animation: _stackOneAnimController, 
+                builder: (_, __) {
+                  final s1 = _stackOneAnim.value;
+                  final invS1 = 1 - s1;
+                  return Transform.translate(
+                    offset: Offset(0, s1 * 0 + invS1 * -160),
+                    child: Opacity(
+                      opacity: s1 * s1,
+                      child: const SliderControl(
+                        height: 80,
+                      ),
+                    )
+                  );
+                }
+              )
+            ],
+          ),
+        )
+      )
     );
   }
 }
